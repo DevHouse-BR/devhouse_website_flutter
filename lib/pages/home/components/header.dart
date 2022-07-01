@@ -52,7 +52,7 @@ class HeaderLogo extends StatelessWidget {
           text: TextSpan(
             children: [
               TextSpan(
-                text: 'D',
+                text: 'DevHouse',
                 style: GoogleFonts.oswald(
                   color: Colors.white,
                   fontSize: 32,
