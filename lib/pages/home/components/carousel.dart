@@ -30,7 +30,7 @@ class Carousel extends StatelessWidget {
       ),
     );
   }
-  
+
   Widget _buildTablet(BuildContext context, Widget text, Widget image) {
     return Center(
       child: ResponsiveWrapper(
@@ -76,6 +76,9 @@ class Carousel extends StatelessWidget {
             child: CarouselSlider(
               carouselController: carouselController,
               options: CarouselOptions(
+                autoPlay: true,
+                autoPlayInterval: const Duration(seconds: 5),
+                autoPlayAnimationDuration: const Duration(seconds: 1),
                 viewportFraction: 1,
                 scrollPhysics: const NeverScrollableScrollPhysics(),
                 height: carouselContainerHeight,

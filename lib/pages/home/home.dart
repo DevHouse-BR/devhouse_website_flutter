@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:devhouse_website_flutter/utils/globals.dart';
 import 'package:devhouse_website_flutter/utils/constants.dart';
+import 'package:devhouse_website_flutter/pages/home/components/ios_app_add.dart';
 import 'components/carousel.dart';
+import 'components/cv_section.dart';
 import 'components/header.dart';
 
 class Home extends StatelessWidget {
@@ -63,6 +65,9 @@ class Home extends StatelessWidget {
           children: [
             const Header(),
             Carousel(),
+            const SizedBox(height: 20),
+            const CvSection(),
+            const IosAppAd(),
           ],
         ),
       ),
