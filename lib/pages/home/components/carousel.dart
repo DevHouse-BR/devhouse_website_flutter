@@ -11,11 +11,61 @@ class Carousel extends StatelessWidget {
 
   Carousel({Key? key}) : super(key: key);
 
+  Widget _buildDesktop(BuildContext context, Widget text, Widget image) {
+    return Center(
+      child: ResponsiveWrapper(
+        maxWidth: kDesktopMaxWidth,
+        minWidth: kDesktopMaxWidth,
+        defaultScale: false,
+        child: Row(
+          children: [
+            Expanded(
+              child: text,
+            ),
+            Expanded(
+              child: image,
+            )
+          ],
+        ),
+      ),
+    );
+  }
+  
+  Widget _buildTablet(BuildContext context, Widget text, Widget image) {
+    return Center(
+      child: ResponsiveWrapper(
+        maxWidth: kTabletMaxWidth,
+        minWidth: kTabletMaxWidth,
+        defaultScale: false,
+        child: Row(
+          children: [
+            Expanded(
+              child: text,
+            ),
+            Expanded(
+              child: image,
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildMobile(BuildContext context, Widget text, Widget image) {
+    return Container(
+      constraints: BoxConstraints(
+        maxWidth: getMobileMaxWidth(context),
+      ),
+      width: double.infinity,
+      child: text,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     double carouselContainerHeight = MediaQuery.of(context).size.height *
         (ScreenHelper.isMobile(context) ? 0.7 : 0.85);
-    return Container(
+    return SizedBox(
       height: carouselContainerHeight,
       width: double.infinity,
       child: Column(
@@ -65,57 +115,4 @@ class Carousel extends StatelessWidget {
       ),
     );
   }
-}
-
-Widget _buildDesktop(BuildContext context, Widget text, Widget image) {
-  return Center(
-    child: ResponsiveWrapper(
-      maxWidth: kDesktopMaxWidth,
-      minWidth: kDesktopMaxWidth,
-      defaultScale: false,
-      child: Row(
-        children: [
-          Expanded(
-            child: text,
-          ),
-          Expanded(
-            child: image,
-          )
-        ],
-      ),
-    ),
-  );
-}
-
-// Mid screens
-Widget _buildTablet(BuildContext context, Widget text, Widget image) {
-  return Center(
-    child: ResponsiveWrapper(
-      maxWidth: kTabletMaxWidth,
-      minWidth: kTabletMaxWidth,
-      defaultScale: false,
-      child: Row(
-        children: [
-          Expanded(
-            child: text,
-          ),
-          Expanded(
-            child: image,
-          )
-        ],
-      ),
-    ),
-  );
-}
-
-// SMall Screens
-
-Widget _buildMobile(BuildContext context, Widget text, Widget image) {
-  return Container(
-    constraints: BoxConstraints(
-      maxWidth: getMobileMaxWidth(context),
-    ),
-    width: double.infinity,
-    child: text,
-  );
 }
