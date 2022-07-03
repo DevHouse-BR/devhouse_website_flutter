@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-import 'package:devhouse_website_flutter/models/header_item.dart';
-import 'package:devhouse_website_flutter/utils/constants.dart';
-import 'package:devhouse_website_flutter/utils/screen_helper.dart';
-import 'package:devhouse_website_flutter/utils/globals.dart';
+import '../../../models/header_item.dart';
+import '../../../utils/constants.dart';
+import '../../../utils/screen_helper.dart';
+import '../../../utils/globals.dart';
 
 final List<HeaderItem> headerItems = [
   HeaderItem(

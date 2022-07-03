@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
-import 'package:devhouse_website_flutter/utils/globals.dart';
-import 'package:devhouse_website_flutter/utils/constants.dart';
-import 'package:devhouse_website_flutter/pages/home/components/ios_app_add.dart';
+import '../../utils/constants.dart';
+import '../../utils/globals.dart';
 import 'components/carousel.dart';
 import 'components/cv_section.dart';
 import 'components/header.dart';
+import 'components/ios_app_add.dart';
+import 'components/portfolio_stats.dart';
+import 'components/website_ad.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -68,6 +70,12 @@ class Home extends StatelessWidget {
             const SizedBox(height: 20),
             const CvSection(),
             const IosAppAd(),
+            const SizedBox(height: 70),
+            const WebsiteAd(),
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 8),
+              child: PortfolioStats(),
+            ),
           ],
         ),
       ),

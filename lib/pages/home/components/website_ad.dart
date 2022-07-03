@@ -5,8 +5,8 @@ import 'package:responsive_framework/responsive_framework.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/screen_helper.dart';
 
-class IosAppAd extends StatelessWidget {
-  const IosAppAd({Key? key}) : super(key: key);
+class WebsiteAd extends StatelessWidget {
+  const WebsiteAd({Key? key}) : super(key: key);
 
   Widget _buildUi(double width) {
     return ResponsiveWrapper(
@@ -18,21 +18,13 @@ class IosAppAd extends StatelessWidget {
         direction: width > 720 ? Axis.horizontal : Axis.vertical,
         children: [
           Expanded(
-            // Disable expanded on smaller screen to avoid Render errors by setting flex to 0
-            flex: width > 720.0 ? 1 : 0,
-            child: Image.asset(
-              'assets/images/ios.png',
-              width: width > 720.0 ? null : 350.0,
-            ),
-          ),
-          Expanded(
             flex: width > 720.0 ? 1 : 0,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'IOS App',
+                  'WEBSITE',
                   style: GoogleFonts.oswald(
                     color: kPrimaryColor,
                     fontSize: 16,
@@ -41,7 +33,7 @@ class IosAppAd extends StatelessWidget {
                 ),
                 const SizedBox(height: 15),
                 Text(
-                  'UNIVERSAL\nSMART HOME APP',
+                  'SOME RANDOM\nWEBSITE PROJECT',
                   style: GoogleFonts.oswald(
                     color: Colors.white,
                     fontSize: 35,
@@ -115,6 +107,15 @@ class IosAppAd extends StatelessWidget {
                   ],
                 ),
               ],
+            ),
+          ),
+          const SizedBox(width: 25),
+          Expanded(
+            // Disable expanded on smaller screen to avoid Render errors by setting flex to 0
+            flex: width > 720.0 ? 1 : 0,
+            child: Image.asset(
+              'assets/images/laptop.png',
+              width: width > 720.0 ? null : 350.0,
             ),
           ),
         ],

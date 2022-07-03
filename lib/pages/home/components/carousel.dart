@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-import 'package:devhouse_website_flutter/utils/screen_helper.dart';
-import 'package:devhouse_website_flutter/utils/constants.dart';
+import '../../../utils/constants.dart';
+import '../../../utils/screen_helper.dart';
 import 'carousel_items.dart';
 
 class Carousel extends StatelessWidget {
@@ -85,32 +85,30 @@ class Carousel extends StatelessWidget {
               ),
               items: List.generate(
                 carouselItems.length,
-                (index) => Builder(
-                  builder: (context) {
-                    return Container(
-                      constraints: BoxConstraints(
-                        minHeight: carouselContainerHeight,
+                (index) => Builder(builder: (context) {
+                  return Container(
+                    constraints: BoxConstraints(
+                      minHeight: carouselContainerHeight,
+                    ),
+                    child: ScreenHelper(
+                      desktop: _buildDesktop(
+                        context,
+                        carouselItems[index].text,
+                        carouselItems[index].image,
                       ),
-                      child: ScreenHelper(
-                        desktop: _buildDesktop(
-                          context,
-                          carouselItems[index].text,
-                          carouselItems[index].image,
-                        ),
-                        tablet: _buildTablet(
-                          context,
-                          carouselItems[index].text,
-                          carouselItems[index].image,
-                        ),
-                        mobile: _buildMobile(
-                          context,
-                          carouselItems[index].text,
-                          carouselItems[index].image,
-                        ),
+                      tablet: _buildTablet(
+                        context,
+                        carouselItems[index].text,
+                        carouselItems[index].image,
                       ),
-                    );
-                  }
-                ),
+                      mobile: _buildMobile(
+                        context,
+                        carouselItems[index].text,
+                        carouselItems[index].image,
+                      ),
+                    ),
+                  );
+                }),
               ),
             ),
           ),
