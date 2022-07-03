@@ -4,6 +4,7 @@ import '../../utils/constants.dart';
 import '../../utils/globals.dart';
 import 'components/carousel.dart';
 import 'components/cv_section.dart';
+import 'components/education_section.dart';
 import 'components/header.dart';
 import 'components/ios_app_add.dart';
 import 'components/portfolio_stats.dart';
@@ -76,6 +77,8 @@ class Home extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 8),
               child: PortfolioStats(),
             ),
+            const SizedBox(height: 50),
+            const EducationSection(),
           ],
         ),
       ),

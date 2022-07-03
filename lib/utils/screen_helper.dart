@@ -15,9 +15,9 @@ class ScreenHelper extends StatelessWidget {
 
   const ScreenHelper({
     Key? key,
-    required this.mobile,
-    required this.tablet,
     required this.desktop,
+    required this.tablet,
+    required this.mobile,
   }) : super(key: key);
 
   @override

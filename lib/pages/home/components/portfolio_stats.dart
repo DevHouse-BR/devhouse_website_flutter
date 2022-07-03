@@ -24,8 +24,7 @@ class PortfolioStats extends StatelessWidget {
       child: Wrap(
         spacing: 20,
         runSpacing: 20,
-        children: stats.map((stat) {
-          int index = stats.indexOf(stat);
+        children: stats.map((e) {
           return Container(
             padding: const EdgeInsets.symmetric(vertical: 15),
             width: ScreenHelper.isMobile(context)
@@ -36,7 +35,7 @@ class PortfolioStats extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  stats[index].count,
+                  e.count,
                   style: GoogleFonts.oswald(
                     color: Colors.white,
                     fontWeight: FontWeight.w700,
@@ -45,7 +44,7 @@ class PortfolioStats extends StatelessWidget {
                 ),
                 const SizedBox(width: 10),
                 Text(
-                  stats[index].text,
+                  e.text,
                   style: const TextStyle(
                     color: kCaptionColor,
                     fontSize: 16,
