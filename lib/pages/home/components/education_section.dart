@@ -127,8 +127,8 @@ class EducationSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenHelper(
-      desktop: _buildUi(1000),
-      tablet: _buildUi(800),
+      desktop: _buildUi(kDesktopMaxWidth),
+      tablet: _buildUi(kTabletMaxWidth),
       mobile: _buildUi(MediaQuery.of(context).size.width * 0.8),
     );
   }
