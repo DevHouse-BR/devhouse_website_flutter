@@ -40,7 +40,6 @@ class CvSection extends StatelessWidget {
     return ResponsiveWrapper(
       maxWidth: width,
       minWidth: width,
-      defaultScale: false,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [

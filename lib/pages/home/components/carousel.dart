@@ -16,7 +16,6 @@ class Carousel extends StatelessWidget {
       child: ResponsiveWrapper(
         maxWidth: kDesktopMaxWidth,
         minWidth: kDesktopMaxWidth,
-        defaultScale: false,
         child: Row(
           children: [
             Expanded(
@@ -36,7 +35,6 @@ class Carousel extends StatelessWidget {
       child: ResponsiveWrapper(
         maxWidth: kTabletMaxWidth,
         minWidth: kTabletMaxWidth,
-        defaultScale: false,
         child: Row(
           children: [
             Expanded(

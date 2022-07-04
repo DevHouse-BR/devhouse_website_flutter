@@ -12,7 +12,6 @@ class WebsiteAd extends StatelessWidget {
     return ResponsiveWrapper(
       maxWidth: width,
       minWidth: width,
-      defaultScale: false,
       child: Flex(
         mainAxisAlignment: MainAxisAlignment.center,
         direction: width > 720 ? Axis.horizontal : Axis.vertical,

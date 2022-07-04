@@ -38,7 +38,6 @@ class EducationSection extends StatelessWidget {
       child: ResponsiveWrapper(
         minWidth: width,
         maxWidth: width,
-        defaultScale: false,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [

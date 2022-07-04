@@ -14,7 +14,6 @@ class Sponsors extends StatelessWidget {
       child: ResponsiveWrapper(
         minWidth: width,
         maxWidth: width,
-        defaultScale: false,
         child: Wrap(
           runSpacing: 50,
           spacing: 50,
