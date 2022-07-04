@@ -5,6 +5,7 @@ import '../../utils/globals.dart';
 import 'components/carousel.dart';
 import 'components/cv_section.dart';
 import 'components/education_section.dart';
+import 'components/footer.dart';
 import 'components/header.dart';
 import 'components/ios_app_add.dart';
 import 'components/portfolio_stats.dart';
@@ -88,6 +89,8 @@ class Home extends StatelessWidget {
             const Sponsors(),
             const SizedBox(height: 50),
             const Testimonials(),
+            const SizedBox(height: 50),
+            const Footer(),
           ],
         ),
       ),

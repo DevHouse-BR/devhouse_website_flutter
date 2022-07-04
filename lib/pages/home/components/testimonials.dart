@@ -87,9 +87,8 @@ class Testimonials extends StatelessWidget {
                   .map(
                     (e) => Expanded(
                       flex: ScreenHelper.isMobile(context) ? 0 : 1,
-                      child: Container(
+                      child: Padding(
                         padding: const EdgeInsets.all(8),
-                        margin: const EdgeInsets.only(bottom: 50),
                         child: Column(
                           children: [
                             Image.asset('assets/images/quote.png', width: 50),
