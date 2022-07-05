@@ -1,8 +1,8 @@
-import 'package:devhouse_website_flutter/utils/screen_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
+import '../../../components/responsive.dart';
 import '../../../models/testimonial.dart';
 import '../../../utils/constants.dart';
 
@@ -31,10 +31,11 @@ final List<Testimonial> testimonials = [
   ),
 ];
 
-class Testimonials extends StatelessWidget {
+class Testimonials extends Responsive {
   const Testimonials({Key? key}) : super(key: key);
 
-  Widget _buildUi(BuildContext context, double width) {
+  @override
+  Widget buildUi(BuildContext context, double width) {
     return Center(
       child: ResponsiveWrapper(
         minWidth: width,
@@ -80,13 +81,11 @@ class Testimonials extends StatelessWidget {
             ),
             const SizedBox(height: 45),
             Flex(
-              direction: ScreenHelper.isMobile(context)
-                  ? Axis.vertical
-                  : Axis.horizontal,
+              direction: isMobile(context) ? Axis.vertical : Axis.horizontal,
               children: testimonials
                   .map(
                     (e) => Expanded(
-                      flex: ScreenHelper.isMobile(context) ? 0 : 1,
+                      flex: isMobile(context) ? 0 : 1,
                       child: Padding(
                         padding: const EdgeInsets.all(8),
                         child: Column(
@@ -142,15 +141,6 @@ class Testimonials extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return ScreenHelper(
-      mobile: _buildUi(context, getMobileMaxWidth(context)),
-      tablet: _buildUi(context, kTabletMaxWidth),
-      desktop: _buildUi(context, kDesktopMaxWidth),
     );
   }
 }

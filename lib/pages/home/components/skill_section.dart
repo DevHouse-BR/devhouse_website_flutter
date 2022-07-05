@@ -1,8 +1,8 @@
-import 'package:devhouse_website_flutter/utils/screen_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
+import '../../../components/responsive.dart';
 import '../../../models/skill.dart';
 import '../../../utils/constants.dart';
 
@@ -17,20 +17,20 @@ List<Skill> skills = [
   Skill(skill: 'Java', percentage: 80),
 ];
 
-class SkillSection extends StatelessWidget {
+class SkillSection extends Responsive {
   const SkillSection({Key? key}) : super(key: key);
 
-  Widget _buildUi(BuildContext context, double width) {
+  @override
+  Widget buildUi(BuildContext context, double width) {
     return Center(
       child: ResponsiveWrapper(
         minWidth: width,
         maxWidth: width,
         child: Flex(
-          direction:
-              ScreenHelper.isMobile(context) ? Axis.vertical : Axis.horizontal,
+          direction: isMobile(context) ? Axis.vertical : Axis.horizontal,
           children: [
             Expanded(
-              flex: ScreenHelper.isMobile(context) ? 0 : 2,
+              flex: isMobile(context) ? 0 : 2,
               child: Image.asset(
                 'assets/images/person_small.png',
                 width: 300,
@@ -38,7 +38,7 @@ class SkillSection extends StatelessWidget {
             ),
             const SizedBox(width: 50),
             Expanded(
-              flex: ScreenHelper.isMobile(context) ? 0 : 4,
+              flex: isMobile(context) ? 0 : 4,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -106,15 +106,6 @@ class SkillSection extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return ScreenHelper(
-      mobile: _buildUi(context, getMobileMaxWidth(context)),
-      tablet: _buildUi(context, kTabletMaxWidth),
-      desktop: _buildUi(context, kDesktopMaxWidth),
     );
   }
 }

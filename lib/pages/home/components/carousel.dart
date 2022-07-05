@@ -2,67 +2,53 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-import '../../../utils/constants.dart';
-import '../../../utils/screen_helper.dart';
+import '../../../components/responsive.dart';
 import 'carousel_items.dart';
 
-class Carousel extends StatelessWidget {
+class Carousel extends Responsive {
   final CarouselController carouselController = CarouselController();
 
   Carousel({Key? key}) : super(key: key);
 
-  Widget _buildDesktop(BuildContext context, Widget text, Widget image) {
-    return Center(
-      child: ResponsiveWrapper(
-        maxWidth: kDesktopMaxWidth,
-        minWidth: kDesktopMaxWidth,
-        child: Row(
-          children: [
-            Expanded(
-              child: text,
-            ),
-            Expanded(
-              child: image,
-            )
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildTablet(BuildContext context, Widget text, Widget image) {
-    return Center(
-      child: ResponsiveWrapper(
-        maxWidth: kTabletMaxWidth,
-        minWidth: kTabletMaxWidth,
-        child: Row(
-          children: [
-            Expanded(
-              child: text,
-            ),
-            Expanded(
-              child: image,
-            )
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildMobile(BuildContext context, Widget text, Widget image) {
+  Widget _mobile(double width, Widget text) {
     return Container(
       constraints: BoxConstraints(
-        maxWidth: getMobileMaxWidth(context),
+        maxWidth: width,
       ),
-      width: double.infinity,
       child: text,
     );
   }
 
+  Widget _deskTablet(double width, double height, Widget text, Widget image) {
+    return ResponsiveWrapper(
+      minWidth: width,
+      maxWidth: width,
+      child: Container(
+        constraints: BoxConstraints(
+          minHeight: height,
+        ),
+        child: Row(
+          children: [
+            Expanded(child: text),
+            Expanded(child: image),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
-  Widget build(BuildContext context) {
-    double carouselContainerHeight = MediaQuery.of(context).size.height *
-        (ScreenHelper.isMobile(context) ? 0.7 : 0.85);
+  Widget buildUi(BuildContext context, double width) {
+    final mobile = isMobile(context);
+    final height = MediaQuery.of(context).size.height;
+
+    double carouselContainerHeight = 0;
+    if (mobile) {
+      carouselContainerHeight = height * 0.7;
+    } else {
+      carouselContainerHeight = height * 0.85;
+    }
+
     return SizedBox(
       height: carouselContainerHeight,
       width: double.infinity,
@@ -83,30 +69,18 @@ class Carousel extends StatelessWidget {
               ),
               items: List.generate(
                 carouselItems.length,
-                (index) => Builder(builder: (context) {
-                  return Container(
-                    constraints: BoxConstraints(
-                      minHeight: carouselContainerHeight,
-                    ),
-                    child: ScreenHelper(
-                      desktop: _buildDesktop(
-                        context,
-                        carouselItems[index].text,
-                        carouselItems[index].image,
-                      ),
-                      tablet: _buildTablet(
-                        context,
-                        carouselItems[index].text,
-                        carouselItems[index].image,
-                      ),
-                      mobile: _buildMobile(
-                        context,
-                        carouselItems[index].text,
-                        carouselItems[index].image,
-                      ),
-                    ),
-                  );
-                }),
+                (index) => Builder(
+                  builder: (context) {
+                    return mobile
+                        ? _mobile(width, carouselItems[index].text)
+                        : _deskTablet(
+                            width,
+                            carouselContainerHeight,
+                            carouselItems[index].text,
+                            carouselItems[index].image,
+                          );
+                  },
+                ),
               ),
             ),
           ),

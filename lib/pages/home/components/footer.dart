@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
+import '../../../components/responsive.dart';
 import '../../../models/footer_item.dart';
 import '../../../utils/constants.dart';
-import '../../../utils/screen_helper.dart';
 
 final List<FooterItem> footerItems = [
   FooterItem(
@@ -33,10 +33,11 @@ final List<FooterItem> footerItems = [
   ),
 ];
 
-class Footer extends StatelessWidget {
+class Footer extends Responsive {
   const Footer({Key? key}) : super(key: key);
 
-  Widget _buildUi(BuildContext context, double width) {
+  @override
+  Widget buildUi(BuildContext context, double width) {
     return Center(
       child: ResponsiveWrapper(
         minWidth: width,
@@ -53,7 +54,7 @@ class Footer extends StatelessWidget {
                     .map(
                       (e) => SizedBox(
                         height: 120,
-                        width: ScreenHelper.isMobile(context)
+                        width: isMobile(context)
                             ? ((width / 2) - 20)
                             : ((width / 4) - 20),
                         child: Column(
@@ -102,10 +103,8 @@ class Footer extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             Flex(
-              direction: ScreenHelper.isMobile(context)
-                  ? Axis.vertical
-                  : Axis.horizontal,
-              mainAxisAlignment: ScreenHelper.isMobile(context)
+              direction: isMobile(context) ? Axis.vertical : Axis.horizontal,
+              mainAxisAlignment: isMobile(context)
                   ? MainAxisAlignment.center
                   : MainAxisAlignment.spaceBetween,
               children: [
@@ -161,15 +160,6 @@ class Footer extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return ScreenHelper(
-      mobile: _buildUi(context, getMobileMaxWidth(context)),
-      tablet: _buildUi(context, kTabletMaxWidth),
-      desktop: _buildUi(context, kDesktopMaxWidth),
     );
   }
 }

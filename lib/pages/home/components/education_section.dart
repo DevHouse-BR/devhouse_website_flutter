@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
+import '../../../components/responsive.dart';
 import '../../../models/education.dart';
 import '../../../utils/constants.dart';
-import '../../../utils/screen_helper.dart';
 
 final List<Education> educationList = [
   Education(
@@ -29,10 +29,11 @@ final List<Education> educationList = [
   ),
 ];
 
-class EducationSection extends StatelessWidget {
+class EducationSection extends Responsive {
   const EducationSection({Key? key}) : super(key: key);
 
-  Widget _buildUi(double width) {
+  @override
+  Widget buildUi(BuildContext context, double width) {
     return Container(
       alignment: Alignment.center,
       child: ResponsiveWrapper(
@@ -120,15 +121,6 @@ class EducationSection extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return ScreenHelper(
-      desktop: _buildUi(kDesktopMaxWidth),
-      tablet: _buildUi(kTabletMaxWidth),
-      mobile: _buildUi(MediaQuery.of(context).size.width * 0.8),
     );
   }
 }
