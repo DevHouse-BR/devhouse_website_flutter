@@ -3,11 +3,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 import '../../../components/responsive.dart';
-import '../../../models/testimonial.dart';
+import '../../../models/testimonial_item.dart';
 import '../../../utils/constants.dart';
 
-final List<Testimonial> testimonials = [
-  Testimonial(
+final List<TestimonialItem> testimonials = [
+  TestimonialItem(
     text:
         'Mussum Ipsum, cacilds vidis litro abertis. Todo mundo vê os porris que'
         ' eu tomo, mas ninguém vê os tombis que eu levo! Praesent malesuada'
@@ -18,7 +18,7 @@ final List<Testimonial> testimonials = [
     personName: 'DANIEL CUNNINGHAM',
     profilePhoto: 'assets/images/female.png',
   ),
-  Testimonial(
+  TestimonialItem(
     text:
         'Mussum Ipsum, cacilds vidis litro abertis. Todo mundo vê os porris que'
         ' eu tomo, mas ninguém vê os tombis que eu levo! Praesent malesuada'

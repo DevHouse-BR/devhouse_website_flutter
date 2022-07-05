@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
+import '../../components/footer.dart';
+import '../../components/header.dart';
 import '../../utils/globals.dart';
-import 'components/carousel.dart';
-import 'components/cv_section.dart';
-import 'components/education_section.dart';
-import 'components/footer.dart';
-import 'components/header.dart';
-import 'components/ios_app_add.dart';
-import 'components/portfolio_stats.dart';
-import 'components/skill_section.dart';
-import 'components/sponsors.dart';
-import 'components/testimonials.dart';
-import 'components/website_ad.dart';
+import 'sections/carousel.dart';
+import 'sections/education.dart';
+import 'sections/ios_app_add.dart';
+import 'sections/portfolio_stats.dart';
+import 'sections/resume.dart';
+import 'sections/skills.dart';
+import 'sections/sponsors.dart';
+import 'sections/testimonials.dart';
+import 'sections/website_ad.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -28,15 +28,15 @@ class Home extends StatelessWidget {
             const Header(),
             Carousel(),
             const SizedBox(height: 20),
-            const CvSection(),
+            const Resume(),
             const IosAppAd(),
             const SizedBox(height: 70),
             const WebsiteAd(),
             const PortfolioStats(),
             const SizedBox(height: 50),
-            const EducationSection(),
+            const Education(),
             const SizedBox(height: 50),
-            const SkillSection(),
+            const Skills(),
             const SizedBox(height: 50),
             const Sponsors(),
             const SizedBox(height: 50),

@@ -3,29 +3,29 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 import '../../../components/responsive.dart';
-import '../../../models/design_process.dart';
+import '../../../models/resume_item.dart';
 import '../../../utils/constants.dart';
 
-final List<DesignProcess> designProcesses = [
-  DesignProcess(
+final List<ResumeItem> designProcesses = [
+  ResumeItem(
     title: 'DESIGN',
     imagePath: 'assets/images/design.png',
     subTitle: 'A fullstack all around designer that may or may not include a '
         'guide for specific creative',
   ),
-  DesignProcess(
+  ResumeItem(
     title: 'DEVELOP',
     imagePath: 'assets/images/develop.png',
     subTitle: 'A fullstack all around developer that may or may not include a '
         'guide for specific creative',
   ),
-  DesignProcess(
+  ResumeItem(
     title: 'WRITE',
     imagePath: 'assets/images/write.png',
     subTitle: 'A fullstack all around writer that may or may not include a '
         'guide for specific creative',
   ),
-  DesignProcess(
+  ResumeItem(
     title: 'PROMOTE',
     imagePath: 'assets/images/promote.png',
     subTitle: 'A fullstack all around promoter that may or may not include a '
@@ -33,8 +33,8 @@ final List<DesignProcess> designProcesses = [
   )
 ];
 
-class CvSection extends Responsive {
-  const CvSection({Key? key}) : super(key: key);
+class Resume extends Responsive {
+  const Resume({Key? key}) : super(key: key);
 
   @override
   Widget buildUi(BuildContext context, double width) {

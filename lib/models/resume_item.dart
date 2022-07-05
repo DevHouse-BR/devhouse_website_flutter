@@ -1,9 +1,9 @@
-class DesignProcess {
+class ResumeItem {
   final String title;
   final String imagePath;
   final String subTitle;
 
-  DesignProcess({
+  ResumeItem({
     required this.title,
     required this.imagePath,
     required this.subTitle,

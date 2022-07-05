@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 import '../../../components/responsive.dart';
-import 'carousel_items.dart';
+import '../../../models/carousel_items.dart';
 
 class Carousel extends Responsive {
   final CarouselController carouselController = CarouselController();

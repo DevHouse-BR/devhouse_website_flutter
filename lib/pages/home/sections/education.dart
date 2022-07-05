@@ -3,34 +3,34 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 import '../../../components/responsive.dart';
-import '../../../models/education.dart';
+import '../../../models/education_item.dart';
 import '../../../utils/constants.dart';
 
-final List<Education> educationList = [
-  Education(
+final List<EducationItem> educationList = [
+  EducationItem(
     description: 'Mestrado em Engenharia de Software',
     linkName: 'www.devhouse.com.br',
     period: '2015 - PRESENTE',
   ),
-  Education(
+  EducationItem(
     description: 'Pós-Graduação em Gestão de Projetos',
     linkName: 'www.devhouse.com.br',
     period: '2015 - 2020',
   ),
-  Education(
+  EducationItem(
     description: 'Análise de Desenvolvimento de Software',
     linkName: 'www.devhouse.com.br',
     period: '2015 - 2020',
   ),
-  Education(
+  EducationItem(
     description: 'Análise de Desenvolvimento de Software',
     linkName: 'www.devhouse.com.br',
     period: '2015 - 2020',
   ),
 ];
 
-class EducationSection extends Responsive {
-  const EducationSection({Key? key}) : super(key: key);
+class Education extends Responsive {
+  const Education({Key? key}) : super(key: key);
 
   @override
   Widget buildUi(BuildContext context, double width) {
@@ -73,7 +73,7 @@ class EducationSection extends Responsive {
                   spacing: 20,
                   runSpacing: 20,
                   children: educationList
-                      .map((e) => Container(
+                      .map((e) => SizedBox(
                             width: (constraints.maxWidth / 2) - 20,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,

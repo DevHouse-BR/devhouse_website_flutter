@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-import '../../../components/responsive.dart';
-import '../../../models/footer_item.dart';
-import '../../../utils/constants.dart';
+import '../models/footer_item.dart';
+import '../utils/constants.dart';
+import 'responsive.dart';
 
 final List<FooterItem> footerItems = [
   FooterItem(

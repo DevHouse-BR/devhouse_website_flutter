@@ -3,22 +3,22 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 import '../../../components/responsive.dart';
-import '../../../models/skill.dart';
+import '../../../models/skill_item.dart';
 import '../../../utils/constants.dart';
 
-List<Skill> skills = [
-  Skill(skill: 'Dart', percentage: 70),
-  Skill(skill: 'Flutter', percentage: 65),
-  Skill(skill: 'Javascript', percentage: 95),
-  Skill(skill: 'Node', percentage: 75),
-  Skill(skill: 'C#', percentage: 50),
-  Skill(skill: 'Python', percentage: 50),
-  Skill(skill: 'PHP', percentage: 90),
-  Skill(skill: 'Java', percentage: 80),
+List<SkillItem> skills = [
+  SkillItem(skill: 'Dart', percentage: 70),
+  SkillItem(skill: 'Flutter', percentage: 65),
+  SkillItem(skill: 'Javascript', percentage: 95),
+  SkillItem(skill: 'Node', percentage: 75),
+  SkillItem(skill: 'C#', percentage: 50),
+  SkillItem(skill: 'Python', percentage: 50),
+  SkillItem(skill: 'PHP', percentage: 90),
+  SkillItem(skill: 'Java', percentage: 80),
 ];
 
-class SkillSection extends Responsive {
-  const SkillSection({Key? key}) : super(key: key);
+class Skills extends Responsive {
+  const Skills({Key? key}) : super(key: key);
 
   @override
   Widget buildUi(BuildContext context, double width) {
