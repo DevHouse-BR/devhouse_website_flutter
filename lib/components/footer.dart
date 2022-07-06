@@ -39,7 +39,7 @@ class Footer extends Responsive {
 
   @override
   Widget buildUi(BuildContext context, double width) {
-    final bool isTablet = Responsive.isTablet(context);
+    final bool isMobile = Responsive.isMobile(context);
     return Center(
       child: ResponsiveWrapper(
         minWidth: width,
@@ -57,7 +57,7 @@ class Footer extends Responsive {
                       (e) => SizedBox(
                         height: 130,
                         width:
-                            isTablet ? ((width / 2) - 20) : ((width / 4) - 20),
+                            isMobile ? ((width / 2) - 20) : ((width / 4) - 20),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -97,8 +97,8 @@ class Footer extends Responsive {
             ),
             const SizedBox(height: 20),
             Flex(
-              direction: isTablet ? Axis.vertical : Axis.horizontal,
-              mainAxisAlignment: isTablet
+              direction: isMobile ? Axis.vertical : Axis.horizontal,
+              mainAxisAlignment: isMobile
                   ? MainAxisAlignment.center
                   : MainAxisAlignment.spaceBetween,
               children: [

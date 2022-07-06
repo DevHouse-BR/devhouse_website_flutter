@@ -8,7 +8,7 @@ class DesktopMenu extends StatelessWidget {
     return ResponsiveVisibility(
       visible: false,
       visibleWhen: const [
-        Condition.largerThan(name: MOBILE),
+        Condition.largerThan(breakpoint: 800),
       ],
       child: Row(
         children: headerItems.map((item) {

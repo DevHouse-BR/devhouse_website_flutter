@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 abstract class Responsive extends StatelessWidget {
   static const double desktopMaxWidth = 1000; // TODO: maybe 1200?
-  static const double tabletMaxWidth = 600; // TODO: maybe 760?
+  static const double tabletMaxWidth = 800; // TODO: maybe 760?
 
   const Responsive({Key? key}) : super(key: key);
 

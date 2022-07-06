@@ -25,7 +25,7 @@ class Home extends StatelessWidget {
 
     return Scaffold(
       key: Globals.scaffoldKey,
-      //extendBodyBehindAppBar: true,
+      extendBodyBehindAppBar: true,
       endDrawer: isMobile ? const MobileMenu() : null,
       body: SafeArea(
         child: Stack(
