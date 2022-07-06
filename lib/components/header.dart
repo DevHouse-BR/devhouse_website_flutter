@@ -1,10 +1,11 @@
+import 'package:devhouse_website_flutter/utils/typography.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 import '../models/header_item.dart';
 import '../utils/constants.dart';
 import '../utils/globals.dart';
+import 'mouse_region.dart';
 import 'responsive.dart';
 
 final List<HeaderItem> headerItems = [
@@ -51,8 +52,7 @@ class MobileMenu extends StatelessWidget {
           child: ListView.separated(
             itemBuilder: (context, index) {
               if (headerItems[index].isButton) {
-                return MouseRegion(
-                  cursor: SystemMouseCursors.click,
+                return DHMouseRegion(
                   child: Container(
                     padding: const EdgeInsets.symmetric(horizontal: 28),
                     decoration: BoxDecoration(
@@ -63,11 +63,7 @@ class MobileMenu extends StatelessWidget {
                       onPressed: headerItems[index].onTap,
                       child: Text(
                         headerItems[index].title,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 13,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: Typo.defaltWhite13Bold,
                       ),
                     ),
                   ),
@@ -97,29 +93,14 @@ class HeaderLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MouseRegion(
-      cursor: SystemMouseCursors.click,
+    return DHMouseRegion(
       child: GestureDetector(
         onTap: () {},
         child: RichText(
           text: TextSpan(
             children: [
-              TextSpan(
-                text: 'DevHouse',
-                style: GoogleFonts.oswald(
-                  color: Colors.white,
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              TextSpan(
-                text: '.',
-                style: GoogleFonts.oswald(
-                  color: kPrimaryColor,
-                  fontSize: 36,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              TextSpan(text: 'DevHouse', style: Typo.gOswaldWhite32Bold),
+              TextSpan(text: '.', style: Typo.defaltPrimary36Bold),
             ],
           ),
         ),
@@ -141,8 +122,7 @@ class HeaderRow extends StatelessWidget {
       child: Row(
         children: headerItems.map((item) {
           if (item.isButton) {
-            return MouseRegion(
-              cursor: SystemMouseCursors.click,
+            return DHMouseRegion(
               child: Container(
                 decoration: BoxDecoration(
                   color: kDangerColor,
@@ -154,32 +134,17 @@ class HeaderRow extends StatelessWidget {
                 ),
                 child: TextButton(
                   onPressed: item.onTap,
-                  child: Text(
-                    item.title,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 13,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                  child: Text(item.title, style: Typo.defaltWhite13Bold),
                 ),
               ),
             );
           } else {
-            return MouseRegion(
-              cursor: SystemMouseCursors.click,
+            return DHMouseRegion(
               child: Container(
                 margin: const EdgeInsets.only(right: 30),
                 child: GestureDetector(
                   onTap: item.onTap,
-                  child: Text(
-                    item.title,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 13,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                  child: Text(item.title, style: Typo.defaltWhite13Bold),
                 ),
               ),
             );

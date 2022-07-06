@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
+import '../../../components/mouse_region.dart';
 import '../../../components/responsive.dart';
 import '../../../models/resume_item.dart';
-import '../../../utils/constants.dart';
+import '../../../utils/typography.dart';
 
 final List<ResumeItem> designProcesses = [
   ResumeItem(
@@ -50,24 +50,14 @@ class Resume extends Responsive {
               children: [
                 Text(
                   'BETTER DESIGN,\nBETTER EXPERIENCES',
-                  style: GoogleFonts.oswald(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w900,
-                    fontSize: 18,
-                    height: 1.8,
-                  ),
+                  style: Typo.gOswaldWhite18w900.copyWith(height: 1.8),
                 ),
                 GestureDetector(
                   onTap: () {},
-                  child: MouseRegion(
-                    cursor: SystemMouseCursors.click,
+                  child: DHMouseRegion(
                     child: Text(
                       'DOWNLOAD CV',
-                      style: GoogleFonts.oswald(
-                        color: kPrimaryColor,
-                        fontWeight: FontWeight.w900,
-                        fontSize: 16,
-                      ),
+                      style: Typo.gOswaldPrimary16w900,
                     ),
                   ),
                 ),
@@ -106,22 +96,14 @@ class Resume extends Responsive {
                             const SizedBox(width: 15),
                             Text(
                               designProcesses[index].title,
-                              style: GoogleFonts.oswald(
-                                color: Colors.white,
-                                fontSize: 20,
-                                fontWeight: FontWeight.w700,
-                              ),
+                              style: Typo.gOswaldWhite20Bold,
                             ),
                           ],
                         ),
                         const SizedBox(height: 15),
                         Text(
                           designProcesses[index].subTitle,
-                          style: const TextStyle(
-                            color: kCaptionColor,
-                            fontSize: 15,
-                            height: 1.5,
-                          ),
+                          style: Typo.defaltCaption15.copyWith(height: 1.5),
                         ),
                       ],
                     );

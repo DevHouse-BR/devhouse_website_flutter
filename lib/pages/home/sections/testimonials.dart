@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 import '../../../components/responsive.dart';
 import '../../../models/testimonial_item.dart';
-import '../../../utils/constants.dart';
+import '../../../utils/typography.dart';
 
 final List<TestimonialItem> testimonials = [
   TestimonialItem(
@@ -45,35 +44,26 @@ class Testimonials extends Responsive {
           children: [
             Text(
               'TESTIMONIALS',
-              style: GoogleFonts.oswald(
-                color: Colors.white,
-                fontSize: 30,
-                fontWeight: FontWeight.w900,
-                height: 1.3,
-              ),
+              style: Typo.gOswaldWhite30w900.copyWith(height: 1.3),
             ),
             const SizedBox(height: 5),
             Container(
               constraints: const BoxConstraints(maxWidth: 400),
               child: RichText(
-                text: const TextSpan(
+                text: TextSpan(
                   children: [
                     TextSpan(
-                      text:
-                          'This is the portfolio section. There is a lot of work here.',
-                      style: TextStyle(color: Colors.white, height: 1.8),
+                      text: 'This is the portfolio section.'
+                          ' There is a lot of work here.',
+                      style: Typo.defaltWhite.copyWith(height: 1.8),
                     ),
                     TextSpan(
                       text: ' Click here to contact us.',
-                      style: TextStyle(
-                        color: kPrimaryColor,
-                        fontWeight: FontWeight.w700,
-                        height: 1.8,
-                      ),
+                      style: Typo.defaltPrimaryBold.copyWith(height: 1.8),
                     ),
                     TextSpan(
                       text: ' Please subscribe to my youtube channel. :-)',
-                      style: TextStyle(color: Colors.white, height: 1.8),
+                      style: Typo.defaltWhite.copyWith(height: 1.8),
                     ),
                   ],
                 ),
@@ -94,10 +84,7 @@ class Testimonials extends Responsive {
                             const SizedBox(height: 15),
                             Text(
                               e.text,
-                              style: const TextStyle(
-                                color: kCaptionColor,
-                                height: 1.8,
-                              ),
+                              style: Typo.defaltCaption.copyWith(height: 1.8),
                             ),
                             const SizedBox(height: 15),
                             Row(
@@ -113,19 +100,13 @@ class Testimonials extends Responsive {
                                   children: [
                                     Text(
                                       e.personName,
-                                      style: GoogleFonts.oswald(
-                                        color: Colors.white,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w700,
-                                      ),
+                                      style: Typo.gOswaldWhite16Bold,
                                     ),
                                     const SizedBox(width: 4),
                                     Text(
                                       e.occupation,
-                                      style: const TextStyle(
-                                        color: kCaptionColor,
-                                        height: 1.8,
-                                      ),
+                                      style: Typo.defaltCaption
+                                          .copyWith(height: 1.8),
                                     ),
                                   ],
                                 ),

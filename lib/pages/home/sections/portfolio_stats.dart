@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 import '../../../components/responsive.dart';
 import '../../../models/stat_item.dart';
-import '../../../utils/constants.dart';
+import '../../../utils/typography.dart';
 
 final List<StatItem> stats = [
   StatItem(count: '43', text: 'Clients'),
@@ -37,21 +36,11 @@ class PortfolioStats extends Responsive {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      e.count,
-                      style: GoogleFonts.oswald(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w700,
-                        fontSize: 32,
-                      ),
-                    ),
+                    Text(e.count, style: Typo.gOswaldWhite32Bold),
                     const SizedBox(width: 10),
                     Text(
                       e.text,
-                      style: const TextStyle(
-                        color: kCaptionColor,
-                        fontSize: 16,
-                      ),
+                      style: Typo.defaltCaption16,
                     ),
                   ],
                 ),

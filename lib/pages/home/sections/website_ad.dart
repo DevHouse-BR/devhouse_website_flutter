@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
+import '../../../components/mouse_region.dart';
 import '../../../components/responsive.dart';
 import '../../../utils/constants.dart';
 
@@ -55,8 +56,7 @@ class WebsiteAd extends Responsive {
                   const SizedBox(height: 25),
                   Row(
                     children: [
-                      MouseRegion(
-                        cursor: SystemMouseCursors.click,
+                      DHMouseRegion(
                         child: Container(
                           height: 48,
                           padding: const EdgeInsets.symmetric(horizontal: 28),
@@ -80,8 +80,7 @@ class WebsiteAd extends Responsive {
                         ),
                       ),
                       const SizedBox(width: 10),
-                      MouseRegion(
-                        cursor: SystemMouseCursors.click,
+                      DHMouseRegion(
                         child: Container(
                           height: 48,
                           padding: const EdgeInsets.symmetric(horizontal: 28),

@@ -1,9 +1,10 @@
+import 'package:devhouse_website_flutter/utils/typography.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 import '../models/footer_item.dart';
 import '../utils/constants.dart';
+import 'mouse_region.dart';
 import 'responsive.dart';
 
 final List<FooterItem> footerItems = [
@@ -65,14 +66,7 @@ class Footer extends Responsive {
                               children: [
                                 Image.asset(e.iconPath, width: 25),
                                 const SizedBox(width: 15),
-                                Text(
-                                  e.title,
-                                  style: GoogleFonts.oswald(
-                                    color: Colors.white,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w700,
-                                  ),
-                                ),
+                                Text(e.title, style: Typo.gOswaldWhite18Bold),
                               ],
                             ),
                             const SizedBox(height: 15),
@@ -112,9 +106,7 @@ class Footer extends Responsive {
                   padding: EdgeInsets.only(bottom: 8.0),
                   child: Text(
                     "Copyright (c) 2022 DevHouse Internet Software. All rights Reserved",
-                    style: TextStyle(
-                      color: kCaptionColor,
-                    ),
+                    style: TextStyle(color: kCaptionColor),
                   ),
                 ),
                 Row(
@@ -122,13 +114,10 @@ class Footer extends Responsive {
                   children: [
                     GestureDetector(
                       onTap: () {},
-                      child: const MouseRegion(
-                        cursor: SystemMouseCursors.click,
+                      child: const DHMouseRegion(
                         child: Text(
                           "Privacy Policy",
-                          style: TextStyle(
-                            color: kCaptionColor,
-                          ),
+                          style: TextStyle(color: kCaptionColor),
                         ),
                       ),
                     ),
@@ -136,9 +125,7 @@ class Footer extends Responsive {
                       padding: const EdgeInsets.symmetric(horizontal: 8.0),
                       child: const Text(
                         "|",
-                        style: TextStyle(
-                          color: kCaptionColor,
-                        ),
+                        style: TextStyle(color: kCaptionColor),
                       ),
                     ),
                     GestureDetector(
@@ -147,9 +134,7 @@ class Footer extends Responsive {
                         cursor: SystemMouseCursors.click,
                         child: Text(
                           "Terms & Conditions",
-                          style: TextStyle(
-                            color: kCaptionColor,
-                          ),
+                          style: TextStyle(color: kCaptionColor),
                         ),
                       ),
                     )

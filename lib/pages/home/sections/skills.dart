@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 import '../../../components/responsive.dart';
 import '../../../models/skill_item.dart';
-import '../../../utils/constants.dart';
+import '../../../utils/typography.dart';
 
 List<SkillItem> skills = [
   SkillItem(skill: 'Dart', percentage: 70),
@@ -45,21 +44,12 @@ class Skills extends Responsive {
                 children: [
                   Text(
                     'SKILLS',
-                    style: GoogleFonts.oswald(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w900,
-                      fontSize: 28,
-                      height: 1.3,
-                    ),
+                    style: Typo.gOswaldWhite28w900.copyWith(height: 1.3),
                   ),
                   const SizedBox(height: 10),
-                  const Text(
+                  Text(
                     'Mussum Ipsum, cacilds vidis litro abertis. Todo mundo vê os porris que eu tomo, mas ninguém vê os tombis que eu levo! Praesent malesuada urna nisi, quis volutpat erat hendrerit non. Nam vulputate dapibus. Não sou faixa preta cumpadi, sou preto inteiris, inteiris. Per aumento de cachacis, eu reclamis.',
-                    style: TextStyle(
-                      color: kCaptionColor,
-                      fontSize: 16,
-                      height: 1.5,
-                    ),
+                    style: Typo.defaltCaption16.copyWith(height: 1.5),
                   ),
                   const SizedBox(height: 15),
                   Column(
@@ -89,10 +79,7 @@ class Skills extends Responsive {
                                 const SizedBox(width: 10),
                                 Text(
                                   '${e.percentage}%',
-                                  style: const TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 16,
-                                  ),
+                                  style: Typo.defaltWhite,
                                 ),
                               ],
                             ),

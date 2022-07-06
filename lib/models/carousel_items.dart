@@ -1,6 +1,7 @@
+import 'package:devhouse_website_flutter/utils/typography.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
+import '../components/mouse_region.dart';
 import '../utils/constants.dart';
 import 'carousel_item.dart';
 
@@ -18,55 +19,30 @@ List<CarouselItem> carouselItems = List.generate(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text(
-          'PRODUCT DESIGNER',
-          style: GoogleFonts.oswald(
-            color: kPrimaryColor,
-            fontWeight: FontWeight.w900,
-            fontSize: 16,
-          ),
-        ),
+        Text('PRODUCT DESIGNER', style: Typo.gOswaldPrimary16w900),
         const SizedBox(height: 18),
         Text(
           'LEONARDO LIMA DE VASCONCELLOS',
-          style: GoogleFonts.oswald(
-            color: Colors.white,
-            fontWeight: FontWeight.w900,
-            fontSize: 40,
-            height: 1.3,
-          ),
+          style: Typo.gOswaldWhite40w900.copyWith(height: 1.3),
         ),
         const SizedBox(height: 10),
         Text(
           'Fullstack developer, Based in Brazil',
-          style: GoogleFonts.oswald(
-            color: kCaptionColor,
-            fontSize: 15,
-            height: 1.0,
-          ),
+          style: Typo.gOswaldCaption15.copyWith(height: 1),
         ),
         const SizedBox(height: 10),
         Wrap(
           children: [
             Text(
               'Need a fully custom website?',
-              style: GoogleFonts.oswald(
-                color: kCaptionColor,
-                fontSize: 15,
-                height: 1.5,
-              ),
+              style: Typo.gOswaldCaption15.copyWith(height: 1.5),
             ),
             GestureDetector(
               onTap: () {},
-              child: const MouseRegion(
-                cursor: SystemMouseCursors.click,
+              child: DHMouseRegion(
                 child: Text(
                   ' Got a project? Let\'s talk.',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 15,
-                    height: 1.5,
-                  ),
+                  style: Typo.defaltWhite15.copyWith(height: 1.5),
                 ),
               ),
             ),
@@ -84,14 +60,7 @@ List<CarouselItem> carouselItems = List.generate(
             padding: const EdgeInsets.symmetric(horizontal: 28),
             child: TextButton(
               onPressed: () {},
-              child: const Text(
-                'GET STARTED',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 13,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              child: Text('GET STARTED', style: Typo.defaltWhite13Bold),
             ),
           ),
         ),

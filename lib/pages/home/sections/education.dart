@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
+import '../../../components/mouse_region.dart';
 import '../../../components/responsive.dart';
 import '../../../models/education_item.dart';
-import '../../../utils/constants.dart';
+import '../../../utils/typography.dart';
 
 final List<EducationItem> educationList = [
   EducationItem(
@@ -44,24 +44,16 @@ class Education extends Responsive {
           children: [
             Text(
               'EDUCATION',
-              style: GoogleFonts.oswald(
-                color: Colors.white,
-                fontWeight: FontWeight.w900,
-                fontSize: 30,
-                height: 1.3,
-              ),
+              style: Typo.gOswaldWhite30w900.copyWith(height: 1.3),
             ),
             const SizedBox(height: 5),
             Wrap(
               children: [
                 Container(
                   constraints: const BoxConstraints(maxWidth: 400),
-                  child: const Text(
+                  child: Text(
                     'Mussum Ipsum, cacilds vidis litro abertis. Todo mundo vê os porris que eu tomo, mas ninguém vê os tombis que eu levo! Praesent malesuada urna nisi, quis volutpat erat hendrerit non. Nam vulputate dapibus. Não sou faixa preta cumpadi, sou preto inteiris, inteiris. Per aumento de cachacis, eu reclamis.',
-                    style: TextStyle(
-                      color: Colors.white,
-                      height: 1.5,
-                    ),
+                    style: Typo.defaltWhite.copyWith(height: 1.5),
                   ),
                 ),
               ],
@@ -80,33 +72,24 @@ class Education extends Responsive {
                               children: [
                                 Text(
                                   e.period,
-                                  style: GoogleFonts.oswald(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 20,
-                                  ),
+                                  style: Typo.gOswaldWhite20Bold,
                                 ),
                                 const SizedBox(height: 5),
                                 Text(
                                   e.description,
                                   maxLines: 4,
                                   overflow: TextOverflow.ellipsis,
-                                  style: const TextStyle(
-                                    color: kCaptionColor,
-                                    height: 1.5,
-                                  ),
+                                  style:
+                                      Typo.defaltCaption.copyWith(height: 1.5),
                                 ),
                                 const SizedBox(height: 20),
-                                MouseRegion(
-                                  cursor: SystemMouseCursors.click,
+                                DHMouseRegion(
                                   child: GestureDetector(
                                     onTap: () {},
                                     child: Text(
                                       e.linkName,
-                                      style: const TextStyle(
-                                        color: Colors.white,
-                                        height: 1.5,
-                                      ),
+                                      style: Typo.defaltWhite
+                                          .copyWith(height: 1.5),
                                     ),
                                   ),
                                 ),
