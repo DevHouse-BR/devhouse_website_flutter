@@ -1,15 +1,33 @@
-import 'package:devhouse_website_flutter/pages/home/home.dart';
-import 'package:devhouse_website_flutter/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
+import 'pages/home/home.dart';
+import 'provider/scroll_provider.dart';
+import 'utils/constants.dart';
+
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const DevHouse());
 }
 
 class DevHouse extends StatelessWidget {
   const DevHouse({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => ScrollProvider()),
+      ],
+      child: const Application(),
+    );
+  }
+}
+
+class Application extends StatelessWidget {
+  const Application({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

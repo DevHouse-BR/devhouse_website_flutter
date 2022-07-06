@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../animations/entrance_fader.dart';
+import '../provider/scroll_provider.dart';
 import '../utils/constants.dart';
 import '../utils/dimensions.dart';
 
@@ -16,6 +18,7 @@ class _ScrollToTopState extends State<ScrollToTop> {
 
   @override
   Widget build(BuildContext context) {
+    final scrollProvider = Provider.of<ScrollProvider>(context);
     final double height = MediaQuery.of(context).size.height;
     return Positioned(
       right: -7,
@@ -26,8 +29,7 @@ class _ScrollToTopState extends State<ScrollToTop> {
           padding: EdgeInsets.only(top: height * 0.025),
           child: InkWell(
             borderRadius: BorderRadius.circular(8.0),
-            // onTap: () => scrollProvider.scroll(0),
-            onTap: () {},
+            onTap: () => scrollProvider.scroll(0),
             onHover: (isHovering) {
               if (isHovering) {
                 setState(() {
@@ -51,7 +53,7 @@ class _ScrollToTopState extends State<ScrollToTop> {
                 boxShadow: isHover
                     ? [
                         const BoxShadow(
-                          blurRadius: 12.0,
+                          blurRadius: 10.0,
                           offset: Offset(2.0, 3.0),
                         )
                       ]

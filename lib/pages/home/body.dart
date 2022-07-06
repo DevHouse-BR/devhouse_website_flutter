@@ -5,7 +5,10 @@ class _Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final scrollProvider = Provider.of<ScrollProvider>(context);
+
     return SingleChildScrollView(
+      controller: scrollProvider.controller,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

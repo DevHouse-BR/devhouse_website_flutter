@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../components/footer.dart';
 import '../../components/header/header.dart';
 import '../../components/responsive.dart';
 import '../../components/scroll_to_top.dart';
+import '../../provider/scroll_provider.dart';
 import '../../utils/globals.dart';
 import 'sections/carousel.dart';
 import 'sections/education.dart';
