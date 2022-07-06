@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../components/footer.dart';
 import '../../components/header/header.dart';
 import '../../components/responsive.dart';
+import '../../components/scroll_to_top.dart';
 import '../../utils/globals.dart';
 import 'sections/carousel.dart';
 import 'sections/education.dart';
@@ -31,6 +32,7 @@ class Home extends StatelessWidget {
         child: Stack(
           children: const [
             _Body(),
+            ScrollToTop(),
             Header(),
           ],
         ),
