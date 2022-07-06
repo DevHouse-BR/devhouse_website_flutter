@@ -30,8 +30,9 @@ class PortfolioStats extends Responsive {
             children: stats.map((e) {
               return Container(
                 padding: const EdgeInsets.symmetric(vertical: 15),
-                width:
-                    isMobile(context) ? ((width / 2) - 20) : ((width / 4) - 20),
+                width: Responsive.isMobile(context)
+                    ? ((width / 2) - 20)
+                    : ((width / 4) - 20),
                 height: 100,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,

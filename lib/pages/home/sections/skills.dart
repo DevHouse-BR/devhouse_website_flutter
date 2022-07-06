@@ -21,15 +21,16 @@ class Skills extends Responsive {
 
   @override
   Widget buildUi(BuildContext context, double width) {
+    final bool isMobile = Responsive.isMobile(context);
     return Center(
       child: ResponsiveWrapper(
         minWidth: width,
         maxWidth: width,
         child: Flex(
-          direction: isMobile(context) ? Axis.vertical : Axis.horizontal,
+          direction: isMobile ? Axis.vertical : Axis.horizontal,
           children: [
             Expanded(
-              flex: isMobile(context) ? 0 : 2,
+              flex: isMobile ? 0 : 2,
               child: Image.asset(
                 'assets/images/person_small.png',
                 width: 300,
@@ -37,7 +38,7 @@ class Skills extends Responsive {
             ),
             const SizedBox(width: 50),
             Expanded(
-              flex: isMobile(context) ? 0 : 4,
+              flex: isMobile ? 0 : 4,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,

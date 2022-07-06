@@ -39,12 +39,13 @@ class Footer extends Responsive {
 
   @override
   Widget buildUi(BuildContext context, double width) {
+    final bool isTablet = Responsive.isTablet(context);
     return Center(
       child: ResponsiveWrapper(
         minWidth: width,
         maxWidth: width,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 50),
@@ -54,10 +55,9 @@ class Footer extends Responsive {
                 children: footerItems
                     .map(
                       (e) => SizedBox(
-                        height: 120,
-                        width: isMobile(context)
-                            ? ((width / 2) - 20)
-                            : ((width / 4) - 20),
+                        height: 130,
+                        width:
+                            isTablet ? ((width / 2) - 20) : ((width / 4) - 20),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -97,8 +97,8 @@ class Footer extends Responsive {
             ),
             const SizedBox(height: 20),
             Flex(
-              direction: isMobile(context) ? Axis.vertical : Axis.horizontal,
-              mainAxisAlignment: isMobile(context)
+              direction: isTablet ? Axis.vertical : Axis.horizontal,
+              mainAxisAlignment: isTablet
                   ? MainAxisAlignment.center
                   : MainAxisAlignment.spaceBetween,
               children: [

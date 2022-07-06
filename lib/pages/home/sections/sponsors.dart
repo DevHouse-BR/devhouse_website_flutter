@@ -23,7 +23,7 @@ class Sponsors extends Responsive {
               5,
               (index) => Container(
                 constraints: BoxConstraints(
-                  maxWidth: isMobile(context)
+                  maxWidth: Responsive.isMobile(context)
                       ? ((width / 3) - 50)
                       : ((width / 5) - 50),
                 ),

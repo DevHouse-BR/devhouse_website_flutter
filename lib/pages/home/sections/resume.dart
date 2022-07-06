@@ -38,6 +38,10 @@ class Resume extends Responsive {
 
   @override
   Widget buildUi(BuildContext context, double width) {
+    final bool isMobile = Responsive.isMobile(context);
+    final bool isTablet = Responsive.isTablet(context);
+    final bool isDesktop = Responsive.isDesktop(context);
+
     return Center(
       child: ResponsiveWrapper(
         maxWidth: width,
@@ -74,10 +78,10 @@ class Resume extends Responsive {
                   gridDelegate: ResponsiveGridDelegate(
                     mainAxisSpacing: 20,
                     crossAxisSpacing: 20,
-                    maxCrossAxisExtent: isTablet(context) || isMobile(context)
+                    maxCrossAxisExtent: (isTablet || isMobile)
                         ? (constraints.maxWidth / 2)
                         : 250,
-                    childAspectRatio: isDesktop(context)
+                    childAspectRatio: isDesktop
                         ? 1
                         : MediaQuery.of(context).size.aspectRatio * 1.5,
                   ),

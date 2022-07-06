@@ -39,7 +39,7 @@ class Carousel extends Responsive {
 
   @override
   Widget buildUi(BuildContext context, double width) {
-    final mobile = isMobile(context);
+    final mobile = Responsive.isMobile(context);
     final height = MediaQuery.of(context).size.height;
 
     double carouselContainerHeight = 0;

@@ -1,24 +1,21 @@
 import 'package:flutter/material.dart';
 
 abstract class Responsive extends StatelessWidget {
-  final double desktopMaxWidth = 1000.0; // TODO: maybe 1200?
-  final double tabletMaxWidth = 760.0; // TODO: maybe 600?
+  static const double desktopMaxWidth = 1000; // TODO: maybe 1200?
+  static const double tabletMaxWidth = 600; // TODO: maybe 760?
 
   const Responsive({Key? key}) : super(key: key);
 
-  @protected
-  bool isMobile(BuildContext context) {
+  static bool isMobile(BuildContext context) {
     return (MediaQuery.of(context).size.width < tabletMaxWidth);
   }
 
-  @protected
-  bool isTablet(BuildContext context) {
+  static bool isTablet(BuildContext context) {
     return (MediaQuery.of(context).size.width >= tabletMaxWidth &&
         MediaQuery.of(context).size.width < desktopMaxWidth);
   }
 
-  @protected
-  bool isDesktop(BuildContext context) {
+  static bool isDesktop(BuildContext context) {
     return (MediaQuery.of(context).size.width >= desktopMaxWidth);
   }
 

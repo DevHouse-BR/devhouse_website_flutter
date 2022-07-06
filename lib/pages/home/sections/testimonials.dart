@@ -35,6 +35,7 @@ class Testimonials extends Responsive {
 
   @override
   Widget buildUi(BuildContext context, double width) {
+    final bool isMobile = Responsive.isMobile(context);
     return Center(
       child: ResponsiveWrapper(
         minWidth: width,
@@ -71,11 +72,11 @@ class Testimonials extends Responsive {
             ),
             const SizedBox(height: 45),
             Flex(
-              direction: isMobile(context) ? Axis.vertical : Axis.horizontal,
+              direction: isMobile ? Axis.vertical : Axis.horizontal,
               children: testimonials
                   .map(
                     (e) => Expanded(
-                      flex: isMobile(context) ? 0 : 1,
+                      flex: isMobile ? 0 : 1,
                       child: Padding(
                         padding: const EdgeInsets.all(8),
                         child: Column(
