@@ -1,10 +1,12 @@
-import 'package:devhouse_website_flutter/utils/typography.dart';
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 import '../../models/header_item.dart';
 import '../../utils/constants.dart';
 import '../../utils/globals.dart';
+import '../../utils/typography.dart';
 import '../mouse_region.dart';
 import '../responsive.dart';
 
@@ -64,17 +66,22 @@ class Header extends Responsive {
   Widget buildUi(BuildContext context, double width) {
     final mobile = Responsive.isMobile(context);
 
-    Widget header = Material(
-      color: Colors.black54,
-      elevation: 3,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const HeaderLogo(),
-            mobile ? _mobileMenuIcon() : const DesktopMenu(),
-          ],
+    Widget header = ClipRect(
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+        child: Material(
+          color: Colors.black54,
+          elevation: 3,
+          child: Padding(
+            padding: const EdgeInsets.all(8),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const HeaderLogo(),
+                mobile ? _mobileMenuIcon() : const DesktopMenu(),
+              ],
+            ),
+          ),
         ),
       ),
     );
